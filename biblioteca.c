@@ -3,17 +3,78 @@
 #include <stdlib.h>
 #include "biblioteca.h"
 
+
+
+//ARQUIVO
 void limpa_lista(Livro **inicio){
-    
+    Livro *atual = *inicio;
+    while(atual != NULL){
+        Livro *temp = atual->proximo;
+        atual = atual->proximo;
+        free(temp);
+    } 
+    *inicio = NULL;
 }
 
 void salva_lista(Livro *inicio){
-    //salvar em arquivo
+    FILE *arquivo = fopen("livros.txt", "w");
+    if(arquivo == NULL){
+        printf("falha ao abrir o arquivo");
+        return;
+    }
+
+    Livro *atual = inicio;
+    while (inicio != NULL){
+        fprintf(arquivo, "%d|%s|%s\n", atual->codigo, atual->nome, atual->genero);
+        atual = atual->proximo;
+    }
+
+    fclose(arquivo);
+    printf("lista salva com sucesso");
+    
 }
+
+/*void carrega_lista(Livro **inicio){
+    FILE *arquivo = fopen("livros.txt", "r");
+    if(arquivo == NULL){
+        printf("falha ao abrir o arquivo");
+        return;
+    }
+
+    int codigo;
+    char nome[50];
+    char genero[20];
+
+    while(fscanf(arquivo, "%d|%49[^|]|%19[^\n]\n", &codigo, nome, genero) == 3){
+        Livro *novo = (Livro*) malloc(sizeof(Livro));
+        if(novo == NULL){
+            printf("falha na alocacao de memoria");
+            fclose(arquivo);
+            return;
+        }
+
+        novo->codigo = codigo;
+        strcpy(novo->nome, nome);
+        strcpy(novo->genero, genero);
+
+        novo->proximo = *inicio;
+        *inicio = novo;
+    }
+
+    fclose(arquivo);
+}*/
+
+//ARQUIVO
+
+
+
+
+//LISTA
 
 void inicializa_lista(Livro **inicio){
     *inicio = NULL;
 }
+
 
 void insere_livro(Livro **inicio){
     Livro *novo_livro = (Livro*)malloc(sizeof(Livro));
@@ -82,4 +143,5 @@ void exibe_lista(Livro* inicio){
         printf("=========================== fim da lista ===========================\n");
     }
 }
+//LISTA
 

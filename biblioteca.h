@@ -4,7 +4,7 @@
 #define MAX 100
 
 typedef struct Livro{
-    int codigao;
+    int codigo;
     char nome[50];
     char genero[20];
     struct Livro *proximo;
@@ -15,7 +15,8 @@ void inicializa_lista(Livro **inicio);
 void insere_livro(Livro **inicio);
 void remove_livro(Livro **inicio, int codigo);
 void exibe_lista(Livro *inicio);
-//void salva_lista(Livro *inicio);
-//void limpa_lista(Livro **inicio);
+void salva_lista(Livro *inicio);
+void limpa_lista(Livro **inicio);
+//void carrega_lista(Livro **inicio);
 
 #endif

@@ -1,32 +1,33 @@
 #include <stdio.h>
 #include "biblioteca.h"
 
-int main(){
+/*int main(){
     Livro* biblioteca = NULL;
     int opcao, codigo;
 
-    inicializar_lista(&biblioteca);
+    inicializa_lista(&biblioteca);
 
     do {
         printf("\n===== Sistema de Biblioteca =====\n");
         printf("1. Inserir livro\n");
         printf("2. Remover livro\n");
         printf("3. Exibir todos os livros\n");
-        printf("4. Sair\n");
+        printf("4. ");
+        printf(". Sair\n");
         printf("Escolha uma opcaoo: ");
         scanf("%d", &opcao);
 
         switch (opcao) {
             case 1:
-                inserir_livro(&biblioteca);
+                insere_livro(&biblioteca);
                 break;
             case 2:
                 printf("digite o codigo do livro que deseja remover: ");
                 scanf("%d", &codigo);
-                remover_livro(&biblioteca, codigo);
+                remove_livro(&biblioteca, codigo);
                 break;
             case 3:
-                exibir_lista(biblioteca);
+                exibe_lista(biblioteca);
                 break;
             case 4:
                 printf("Saindo\n");
@@ -40,4 +41,4 @@ int main(){
     //limpa lista
 
     return 0;
-}
+}*/
